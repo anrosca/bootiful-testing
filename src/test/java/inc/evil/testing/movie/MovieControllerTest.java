@@ -1,6 +1,8 @@
 package inc.evil.testing.movie;
 
 import inc.evil.testing.common.AbstractRestTest;
+import inc.evil.testing.movie.controller.MovieController;
+import inc.evil.testing.movie.service.MovieService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;

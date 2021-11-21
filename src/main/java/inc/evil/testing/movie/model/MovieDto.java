@@ -1,4 +1,4 @@
-package inc.evil.testing.movie;
+package inc.evil.testing.movie.model;
 
 import java.util.Objects;
 

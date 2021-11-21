@@ -2,6 +2,7 @@ package inc.evil.testing.movie;
 
 import inc.evil.testing.common.AbstractIntegrationTest;
 import inc.evil.testing.common.ComponentTest;
+import inc.evil.testing.movie.model.MovieDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.web.client.TestRestTemplate;

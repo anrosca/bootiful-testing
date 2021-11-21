@@ -1,12 +1,14 @@
-package inc.evil.testing.movie;
+package inc.evil.testing.movie.controller;
 
+import inc.evil.testing.movie.model.CreateMovieRequest;
+import inc.evil.testing.movie.model.MovieDto;
+import inc.evil.testing.movie.service.MovieService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 
 import javax.validation.Valid;
-import javax.validation.constraints.Size;
 import java.net.URI;
 import java.util.List;
 

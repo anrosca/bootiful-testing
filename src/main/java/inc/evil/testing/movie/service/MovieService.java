@@ -1,5 +1,7 @@
-package inc.evil.testing.movie;
+package inc.evil.testing.movie.service;
 
+import inc.evil.testing.movie.dao.MovieRepository;
+import inc.evil.testing.movie.model.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

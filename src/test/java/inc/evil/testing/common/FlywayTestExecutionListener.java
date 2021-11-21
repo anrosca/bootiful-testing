@@ -16,8 +16,9 @@ public class FlywayTestExecutionListener extends AbstractTestExecutionListener {
 		Environment environment = testContext.getApplicationContext().getEnvironment();
 		DataSource dataSource = testContext.getApplicationContext().getBean(DataSource.class);
 		Flyway flyway = Flyway.configure()
-				.locations(parseListProperty(environment, "spring.flyway.locations"))
-				.schemas(parseListProperty(environment, "spring.flyway.schemas"))
+				.locations(parseListProperty(environment, "spring.flyway.locations",
+						new String[] { "classpath:db/migration" }))
+				.schemas(parseListProperty(environment, "spring.flyway.schemas", new String[0]))
 				.dataSource(dataSource)
 				.sqlMigrationPrefix(environment.getProperty("spring.flyway.sql-migration-prefix", "V"))
 				.sqlMigrationSeparator(environment.getProperty("spring.flyway.sql-migration-separator", "__"))
@@ -28,10 +29,10 @@ public class FlywayTestExecutionListener extends AbstractTestExecutionListener {
 		log.info("Successfully cleaned up the database");
 	}
 
-	private String[] parseListProperty(Environment environment, String propertyName) {
+	private String[] parseListProperty(Environment environment, String propertyName, String[] defaultValue) {
 		String propertyValue = environment.getProperty(propertyName);
 		if (propertyValue == null) {
-			return new String[0];
+			return defaultValue;
 		}
 		return propertyValue.contains(",") ? propertyValue.split(",") : new String[] { propertyValue };
 	}
