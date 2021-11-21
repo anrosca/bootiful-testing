@@ -1,0 +1,16 @@
+---
+version: '2'
+services:
+  #Movie-service operational database
+  movie-service-operational-db:
+    image: postgres:13.3
+    container_name: movie-service-operational-db
+    command:
+      - "postgres"
+      - "-c"
+      - "wal_level=logical"
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: movie-service
+    ports:
+      - "5432:5432"
